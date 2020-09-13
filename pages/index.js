@@ -5,9 +5,11 @@ import { startClock } from '../actions'
 import Examples from '../components/examples'
 
 const Index = () => {
+
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(startClock())
+    console.log('useEffect--->');
+    // dispatch(startClock())
   }, [dispatch])
 
   return (

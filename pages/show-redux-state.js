@@ -10,8 +10,8 @@ const codeStyle = {
 }
 
 const ShowReduxState = () => {
-  const state = useSelector((state) => state)
-
+  const state = useSelector((state) => state.counter)
+  console.log('state---', state);
   return (
     <>
       <pre style={codeStyle}>

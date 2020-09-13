@@ -1,17 +1,22 @@
+// import { count } from 'console';
 import { combineReducers } from 'redux'
 import * as types from './types'
 
 // COUNTER REDUCER
-const counterReducer = (state = 0, { type }) => {
+const counterReducer = (counterState = { counter: 0, init: false }, { type }) => {
+  console.log('state---->>', counterState, type)
   switch (type) {
+    case types.INITIALISE:
+      return { ...counterState, counter: counterState.counter + 10 };
     case types.INCREMENT:
-      return state + 1
+      return { ...counterState, counter: counterState.counter + 1 };
     case types.DECREMENT:
-      return state - 1
+      // return state - 1
+      return { ...counterState, counter: counterState.counter - 1 };
     case types.RESET:
-      return 0
+      return { counter: 0, init: false }
     default:
-      return state
+      return counterState
   }
 }
 
